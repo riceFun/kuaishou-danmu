@@ -6,20 +6,29 @@
   "scripts": {
     "start": "pnpm ts-node src/index.ts",
     "build": "pnpm tsc",
-    "dev": "pnpm ts-node-dev --respawn src/index.ts"
+    "dev": "pnpm ts-node-dev --respawn src/index.ts",
+    "generate-proto": "pnpm pbjs -t static-module -w commonjs -o src/kuaishou.js src/proto/kuaishou.proto && pnpm pbts -o src/kuaishou.d.ts src/kuaishou.js"
   },
   "dependencies": {
+    "axios": "^1.6.7",
+    "long": "^5.2.3",
+    "pako": "^2.1.0",
+    "protobufjs": "^7.4.0",
     "puppeteer": "^22.3.0",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
-    "ws": "^8.16.0",
-    "axios": "^1.6.7"
+    "ts-proto": "^2.7.0",
+    "ws": "^8.16.0"
   },
   "devDependencies": {
-    "@types/node": "^20.11.24",
+    "@types/long": "^4.0.2",
+    "@types/node": "^20.17.30",
+    "@types/pako": "^2.0.3",
     "@types/ws": "^8.5.10",
+    "protobufjs-cli": "^1.1.2",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.3.3"
-  }
-} 
+  },
+  "type": "module"
+}
